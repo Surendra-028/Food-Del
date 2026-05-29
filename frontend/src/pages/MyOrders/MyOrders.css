@@ -1,0 +1,134 @@
+.my-orders {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 0 20px;
+    font-family: sans-serif;
+    color: #333;
+}
+
+.my-orders h2 {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 25px;
+}
+
+.my-orders .container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.no-orders {
+    text-align: center;
+    color: #777;
+    font-size: 16px;
+    padding: 40px 0;
+}
+
+.order-card {
+    display: grid;
+    grid-template-columns: 0.5fr 2fr 1fr 1fr 1fr;
+    align-items: center;
+    gap: 20px;
+    padding: 15px 20px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+    font-size: 14px;
+}
+
+.order-icon {
+    font-size: 28px;
+    display: flex;
+    justify-content: center;
+}
+
+.order-items p {
+    font-weight: 500;
+    color: #4a5568;
+    line-height: 1.4;
+}
+
+.order-amount span {
+    display: block;
+    color: #718096;
+    font-size: 12px;
+    margin-bottom: 2px;
+}
+
+.order-status {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 500;
+}
+
+.status-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.status-dot.paid {
+    background-color: #48bb78;
+}
+
+.status-dot.pending {
+    background-color: #ecc94b;
+}
+
+.track-btn {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    background-color: #fff4f2;
+    color: #ff4321;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: 1px solid #ff4321;
+}
+
+.track-btn:hover {
+    background-color: #ff4321;
+    color: #fff;
+}
+
+@media (max-width: 900px) {
+    .order-card {
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+        padding: 20px;
+    }
+
+    .order-icon {
+        display: none;
+    }
+
+    .order-items {
+        grid-column: span 2;
+    }
+
+    .order-amount, .order-status {
+        grid-column: span 1;
+    }
+
+    .track-btn {
+        grid-column: span 2;
+        width: 100%;
+        text-align: center;
+        padding: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .order-card {
+        grid-template-columns: 1fr;
+    }
+
+    .order-items, .order-amount, .order-status, .track-btn {
+        grid-column: span 1;
+    }
+}

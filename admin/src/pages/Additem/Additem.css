@@ -1,0 +1,134 @@
+.flex-col {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.add {
+  width: 100%;
+  max-width: 550px;
+  background-color: #ffffff;
+  border-radius: 12px;
+}
+
+.add h3 {
+  font-size: 22px;
+  font-weight: 600;
+  color: #323232;
+  margin-bottom: 10px;
+}
+
+.add form {
+  gap: 20px;
+}
+
+.add p {
+  font-size: 14px;
+  font-weight: 500;
+  color: #646464;
+  margin: 0;
+}
+
+.add-item-image img {
+  width: 120px;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.add input[type="text"],
+.add input[type="Number"],
+.add textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #c8c8c8;
+  border-radius: 6px;
+  outline: none;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  color: #494949;
+  box-sizing: border-box;
+}
+
+.add select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #c8c8c8;
+  border-radius: 6px;
+  outline: none;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  color: #494949;
+  box-sizing: border-box;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23494949' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'></polyline></svg>");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 16px;
+  padding-right: 35px;
+}
+
+.add input:focus,
+.add textarea:focus,
+.add select:focus {
+  border-color: #ff6347;
+}
+
+.add textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.add-item-category-prices {
+  display: flex;
+  gap: 25px;
+  width: 100%;
+}
+
+.add-item-category,
+.add-item-price {
+    flex: 1;
+}
+
+button.add {
+  width: 120px;
+  padding: 10px;
+  background-color: #ff6347;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  margin-top: 10px;
+}
+
+button.add:hover {
+  background-color: #e5533c;
+}
+
+@media (max-width: 600px) {
+  .add {
+    max-width: 100%;
+  }
+
+  .add h3 {
+    font-size: 18px;
+  }
+
+  .add-item-category-prices {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .add-item-price {
+    margin-top: 10px;
+  }
+
+  button.add {
+    width: 100%;
+    padding: 12px;
+  }
+}
