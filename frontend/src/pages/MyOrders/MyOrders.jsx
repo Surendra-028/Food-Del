@@ -58,7 +58,7 @@ const MyOrders = () => {
 
                             <div className="order-status">
                                 <span className={`status-dot ${order.payment ? 'paid' : 'paid'}`}></span>
-                                <span>{order.payment ? 'paid' : 'pending'} & {order.status}</span>
+                                <span>{order.payment ? 'paid' : 'paid'} & {order.status}</span>
                             </div>
 
                             <button onClick={fetchOrderDetails} className="track-btn">Track Order</button>
