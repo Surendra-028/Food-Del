@@ -57,7 +57,7 @@ const MyOrders = () => {
                             </div>
 
                             <div className="order-status">
-                                <span className={`status-dot ${order.payment ? 'paid' : 'pending'}`}></span>
+                                <span className={`status-dot ${order.payment ? 'paid' : 'paid'}`}></span>
                                 <span>{order.payment ? 'paid' : 'pending'} & {order.status}</span>
                             </div>
 
