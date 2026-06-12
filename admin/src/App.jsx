@@ -10,7 +10,7 @@ import Order from './pages/Order/Order'
 
 const App = () => {
 
-  const url = "http://localhost:4000"
+  const url = "https://food-del-backend-dfop.onrender.com"
 
   return (
     <div className='app'>
