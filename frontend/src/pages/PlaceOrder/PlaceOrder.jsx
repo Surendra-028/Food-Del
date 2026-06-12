@@ -32,9 +32,6 @@ const PlaceOrder = () => {
 
     const handleSubmitInput = async (event) => {
         event.preventDefault()
-        if (cashOnDelivery === "true") {
-            navigate("/myorders")
-        }
         let orderItems = []
         
         food_list.forEach((food) => {
@@ -53,9 +50,6 @@ const PlaceOrder = () => {
         try {
             const response = await axios.post(`${url}/api/order/place`, OrderData, { headers : {token}})
             if (response.data.success) {
-                if (cashOnDelivery === true) {
-                    navigate("/myorders")
-                }
                 const {session_url} = response.data;
                 window.location.replace(session_url)
             } else {
