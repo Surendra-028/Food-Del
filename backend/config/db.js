@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const connectDB = async () => {
     try {
-        await mongoose.connect("mongodb://127.0.0.1:27017/food-del");
+        await mongoose.connect("mongodb://surendra28:qwerty123456@ac-gli8oij-shard-00-00.ylusrhk.mongodb.net:27017,ac-gli8oij-shard-00-01.ylusrhk.mongodb.net:27017,ac-gli8oij-shard-00-02.ylusrhk.mongodb.net:27017/?ssl=true&replicaSet=atlas-119nl0-shard-0&authSource=admin&appName=Food-Del");
         console.log("DB Connected Successfully!");
     } catch (err) {
         console.error(err.message);
