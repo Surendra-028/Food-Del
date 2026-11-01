@@ -1,355 +1,211 @@
-🍲 Food-Del — Full-Stack Food Delivery Web Application
+# 🍔 Food-Del Application
 
-A feature-rich, full-stack food delivery application built to streamline online food ordering. The system provides an end-to-end workflow—from user registration, interactive menu browsing, real-time cart calculations, to secure checkout and order state management. Designed with a mobile-first strategy to guarantee responsiveness across devices.
+A comprehensive, full-stack online food ordering and delivery web application built to connect customers seamlessly with local restaurants. The platform provides a smooth experience for users to explore menus, customize items, manage their cart, place orders, and track order status in real time.
 
-📋 Table of Contents
+---
 
-Overview
+## 📖 Table of Contents
 
-System Architecture
+- [Features](#-features)
+  - [Customer-Facing Web App](#customer-facing-web-app)
+  - [Admin & Restaurant Portal](#admin--restaurant-portal)
+- [Tech Stack & Architecture](#-tech-stack--architecture)
+- [Project Structure](#-project-structure)
+- [Getting Started](#-getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation & Setup](#installation--setup)
+  - [Environment Configuration](#environment-configuration)
+- [API Endpoints](#-api-endpoints)
+- [Database Models](#-database-models)
+- [Future Enhancements](#-future-enhancements)
+- [Contributing](#-contributing)
+- [License](#-license)
 
-Key Features
+---
 
-Tech Stack
+## 🚀 Features
 
-Repository Structure
+### Customer-Facing Web App
+* **User Authentication & Authorization**: Secure user registration and login using JWT (JSON Web Tokens) with hashed password storage using bcrypt.
+* **Interactive Restaurant & Menu Catalog**: Dynamic filtering by food categories, tags (vegetarian, non-vegetarian, chef specials), and price range.
+* **Shopping Cart & Checkout**: Real-time cart state management with quantity adjustments, item removal, price summary, and delivery fee calculation.
+* **Order History & Tracking**: View previous orders, check current order status (Pending, Out for Delivery, Delivered), and view receipt details.
+* **Responsive User Interface**: Fully optimized for mobile devices, tablets, and desktop displays.
 
-Getting Started
+### Admin & Restaurant Portal
+* **Menu Management**: Full CRUD functionality to add, edit, toggle availability, or delete menu items and categories.
+* **Order Fulfillment Dashboard**: Live view of incoming customer orders to update fulfillment status.
+* **User & Inventory Management**: Overview of active registered users and stock status for menu items.
 
-Prerequisites
+---
 
-Cloning & Installation
+## 🛠️ Tech Stack & Architecture
 
-Environment Variables
+### Frontend
+* **HTML5 / CSS3 / JavaScript (ES6+)**: Core markup, responsive layout styling, and client-side logic.
+* **React**: Component-based UI rendering and client-side state management.
 
-Running the Application
+### Backend
+* **Node.js**: Server-side JavaScript runtime environment.
+* **Express.js**: Fast, unopinionated Web Framework for building RESTful APIs.
+* **JSON Web Token (JWT)**: Stateless user authentication.
+* **Bcrypt.js**: Secure password hashing algorithms.
 
-API Endpoints
+### Database & Cloud Storage
+* **MongoDB Atlas**: NoSQL database for document-based storage of users, products, and orders.
+* **Mongoose**: Object Data Modeling (ODM) library for MongoDB and Node.js.
 
-Mobile-Friendly CSS Architecture
+### Hosting & Deployment
+* **Backend**: Render / Vercel
+* **Frontend**: Vercel / Netlify
 
-Deployment
+---
 
-Contributing
-
-License
-
-📌 Overview
-
-Food-Del solves the core challenges of single-restaurant or multi-vendor online food distribution:
-
-Speed & Accessibility: Light frontend bundle designed with React for high performance.
-
-Dynamic State Management: Context API / Redux pattern to handle real-time item updates in the user's cart.
-
-Database Scalability: Managed via MongoDB Atlas cloud clusters for resilient item and order schemas.
-
-📐 System Architecture
-
-  ┌────────────────────────────────────────────────────────┐
-  │                    React Frontend                      │
-  │     (Mobile, Tablet & Desktop Responsive Views)       │
-  └───────────────────────────┬────────────────────────────┘
-                              │
-                        HTTP / REST API
-                              │
-  ┌───────────────────────────▼────────────────────────────┐
-  │                 Express / Node.js Backend              │
-  │      - Authentication (JWT)   - Cart Controller        │
-  │      - Food Controller        - Order Controller       │
-  └───────────────────────────┬────────────────────────────┘
-                              │
-                        Mongoose ODM
-                              │
-  ┌───────────────────────────▼────────────────────────────┐
-  │                    MongoDB Atlas                       │
-  │      (Users, Food Items, Orders, Admin Schemas)        │
-  └────────────────────────────────────────────────────────┘
-
-
-✨ Key Features
-
-👤 User Capabilities
-
-Authentication: JWT-based sign-up, sign-in, and persistent login sessions.
-
-Interactive Menu: Category-driven food menu filtering (Appetizers, Main Course, Desserts, Beverages).
-
-Cart Operations: Increment/decrement item counts on the fly with dynamic total adjustments.
-
-Checkout & Address Handling: Order summary generation with delivery details input.
-
-Order Tracking: Historic order logs displaying item details and status progression.
-
-🛠️ Admin / Backend Capabilities
-
-Menu Management: API routes to upload, update, and remove food entries.
-
-Order Handling: Admin privilege to view incoming orders and update delivery status.
-
-Image Storage: Cloud or static server asset hosting for item thumbnails.
-
-🛠️ Tech Stack
-
-Frontend
-
-Framework: React.js
-
-Styling: Vanilla CSS3 (CSS Variables, Flexbox, CSS Grid, Media Queries)
-
-Icons: FontAwesome / Lucide React
-
-Backend
-
-Runtime: Node.js
-
-Framework: Express.js
-
-Authentication: JSON Web Tokens (jsonwebtoken), bcryptjs
-
-File Uploads: multer
-
-Database & Hosting
-
-Database: MongoDB Atlas (M0 Cluster)
-
-Deployment: Vercel (Frontend), Render (Backend)
-
-📁 Repository Structure
+## 📁 Project Structure
 
 Food-Del/
 ├── backend/
-│   ├── config/
-│   │   └── db.js
-│   ├── controllers/
-│   │   ├── cartController.js
-│   │   ├── foodController.js
-│   │   ├── orderController.js
-│   │   └── userController.js
-│   ├── middleware/
-│   │   └── auth.js
-│   ├── models/
-│   │   ├── foodModel.js
-│   │   ├── orderModel.js
-│   │   └── userModel.js
-│   ├── routes/
-│   │   ├── cartRoute.js
-│   │   ├── foodRoute.js
-│   │   ├── orderRoute.js
-│   │   └── userRoute.js
-│   ├── uploads/
-│   ├── .env.example
-│   ├── package.json
-│   └── server.js
-├── frontend/
-│   ├── public/
-│   ├── src/
-│   │   ├── assets/
-│   │   ├── components/
-│   │   │   ├── AppDownload/
-│   │   │   ├── ExploreMenu/
-│   │   │   ├── FoodDisplay/
-│   │   │   ├── FoodItem/
-│   │   │   ├── Footer/
-│   │   │   ├── Header/
-│   │   │   ├── LoginPopup/
-│   │   │   └── Navbar/
-│   │   ├── context/
-│   │   │   └── StoreContext.jsx
-│   │   ├── pages/
-│   │   │   ├── Cart/
-│   │   │   ├── Home/
-│   │   │   ├── MyOrders/
-│   │   │   └── PlaceOrder/
-│   │   ├── App.jsx
-│   │   ├── index.css
-│   │   └── main.jsx
+│   ├── config/          # Database connection setup
+│   ├── controllers/     # Route handlers for auth, food items, cart, orders
+│   ├── middleware/      # Authentication & file upload middleware
+│   ├── models/          # Mongoose schemas (User, Food, Order)
+│   ├── routes/          # Express route definitions
+│   ├── uploads/         # Uploaded product image files
+│   ├── server.js        # Server entry point
 │   └── package.json
-├── .gitignore
-├── LICENSE
+│
+├── frontend/
+│   ├── public/          # Static assets and index.html
+│   ├── src/
+│   │   ├── assets/      # Images, icons, and static data
+│   │   ├── components/  # Reusable UI components (Navbar, Footer, ItemCard)
+│   │   ├── context/     # Global state management (StoreContext)
+│   │   ├── pages/       # Page components (Home, Cart, PlaceOrder, MyOrders)
+│   │   ├── App.jsx      # Main application routing & setup
+│   │   └── main.jsx     # Application DOM mounting
+│   └── package.json
+│
 └── README.md
 
+---
 
-🚀 Getting Started
+## ⚙️ Getting Started
 
-Prerequisites
+Follow these instructions to set up a local copy of the application for development and testing purposes.
 
-Make sure you have installed:
+### Prerequisites
 
-Node.js (v16.x or higher)
+Ensure you have the following installed on your development machine:
+* **Node.js** (v16.0.0 or higher)
+* **npm** or **yarn**
+* **Git**
+* **MongoDB Atlas Account** (or a local MongoDB instance running on port 27017)
 
-npm or yarn
+### Installation & Setup
 
-GitHub CLI (gh) (Optional, for cloning via standard commands)
+1. Clone the Repository:
+   git clone https://github.com/Surendra-028/Food-Del.git
+   cd Food-Del
 
-Cloning & Installation
+2. Backend Setup:
+   cd backend
+   npm install
 
-# Clone using GitHub CLI
-gh repo clone Surendra-028/Food-Del
+3. Frontend Setup:
+   cd ../frontend
+   npm install
 
-# Navigate to root directory
-cd Food-Del
+### Environment Configuration
 
-# Install Backend dependencies
-cd backend
-npm install
+In the backend directory, create a .env file and configure your environment variables:
 
-# Install Frontend dependencies
-cd ../frontend
-npm install
+PORT=5000
+MONGO_URI=mongodb+srv://<username>:<password>@cluster.mongodb.net/Food-Del?retryWrites=true&w=majority
+JWT_SECRET=your_jwt_secret_key_here
 
+### Running the Application
 
-Environment Variables
+1. Start the Backend Server (inside backend/):
+   npm run server
 
-Create .env files in both backend and frontend root folders.
+2. Start the Frontend Development Server (inside frontend/):
+   npm run dev
 
-Backend .env
+3. Access the App:
+   Open your browser and navigate to http://localhost:5173
 
-PORT=4000
-MONGO_URI=mongodb+srv://<username>:<password>@cluster.mongodb.net/Food_Del
-JWT_SECRET=your_super_secret_jwt_key
+---
 
+## 📡 API Endpoints
 
-Frontend .env
+### Authentication
+* POST /api/user/register - Create a new user account
+* POST /api/user/login - Authenticate user and return JWT
 
-VITE_BACKEND_URL=http://localhost:4000
+### Food Items
+* GET /api/food/list - Fetch all available menu items
+* POST /api/food/add - Add a new menu item (Admin)
+* POST /api/food/remove - Delete a menu item (Admin)
 
+### Cart Operations
+* POST /api/cart/get - Fetch cart items for logged-in user
+* POST /api/cart/add - Add item to cart
+* POST /api/cart/remove - Remove item from cart
 
-💻 Running the Application
+### Orders
+* POST /api/order/place - Place a new order
+* POST /api/order/userorders - Retrieve user order history
+* GET /api/order/list - Fetch all customer orders (Admin)
 
-1. Start the Backend Server
+---
 
-cd backend
-npm run server
-# Server running on http://localhost:4000
+## 🗄️ Database Models
 
+### User Schema
+* name (String, Required)
+* email (String, Required, Unique)
+* password (String, Required)
+* cartData (Object, Default: {})
 
-2. Start the Frontend Client
+### Food Schema
+* name (String, Required)
+* description (String, Required)
+* price (Number, Required)
+* image (String, Required)
+* category (String, Required)
 
-cd frontend
-npm run dev
-# Application available at http://localhost:5173
+### Order Schema
+* userId (String, Required)
+* items (Array of objects, Required)
+* amount (Number, Required)
+* address (Object, Required)
+* status (String, Default: "Food Processing")
+* date (Date, Default: Date.now)
+* payment (Boolean, Default: false)
 
+---
 
-🔌 API Endpoints
+## 🔮 Future Enhancements
 
-User Routes (/api/user)
+- **Payment Gateway Integration**: Add Stripe and Razorpay checkout support for instant digital payments.
+- **Real-Time Delivery Tracking**: Integrate Google Maps API to track live driver delivery routes.
+- **Search & Filter Extensions**: Advanced full-text search across items and restaurant locations.
+- **Rating & Review System**: Allow users to leave ratings and text feedback on ordered menu items.
 
-POST /api/user/register — Create a new user account
+---
 
-POST /api/user/login — Authenticate user and receive JWT
+## 🤝 Contributing
 
-Food Routes (/api/food)
+Contributions are always welcome!
 
-GET /api/food/list — Fetch all food items
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-POST /api/food/add — Add a new food item (Admin)
+---
 
-POST /api/food/remove — Delete a food item (Admin)
-
-Cart Routes (/api/cart)
-
-POST /api/cart/add — Add item to cart
-
-POST /api/cart/remove — Remove item from cart
-
-POST /api/cart/get — Retrieve cart items for logged-in user
-
-Order Routes (/api/order)
-
-POST /api/order/place — Submit a new order
-
-POST /api/order/userorders — Retrieve orders placed by user
-
-📱 Mobile-Friendly CSS Architecture
-
-The user interface follows mobile-first design principles using modern CSS:
-
-:root {
-  --primary-color: #tomatored;
-  --bg-color: #ffffff;
-  --text-dark: #262626;
-  --text-light: #676767;
-}
-
-body {
-  font-family: 'Outfit', sans-serif;
-  -webkit-tap-highlight-color: transparent;
-}
-
-.food-display-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  gap: 20px;
-  margin-top: 30px;
-}
-
-@media screen and (max-width: 1050px) {
-  .navbar {
-    padding: 20px 0px;
-  }
-}
-
-@media screen and (max-width: 750px) {
-  .navbar .navbar-right {
-    gap: 20px;
-  }
-  .food-display-list {
-    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-    gap: 12px;
-  }
-  .cart-bottom {
-    flex-direction: column-reverse;
-  }
-}
-
-@media screen and (max-width: 480px) {
-  .header-contents {
-    align-items: start;
-  }
-  .header-contents button {
-    padding: 2vw 4vw;
-    font-size: 12px;
-  }
-}
-
-
-🌐 Deployment
-
-Frontend (Vercel)
-
-Push your code to GitHub.
-
-Import repository on Vercel.
-
-Set Build Command to npm run build and Output Directory to dist.
-
-Add VITE_BACKEND_URL in environment configuration.
-
-Backend (Render)
-
-Create a Web Service on Render.
-
-Connect your GitHub repository.
-
-Set Root Directory to backend.
-
-Set Build Command to npm install and Start Command to node server.js.
-
-Add MONGO_URI and JWT_SECRET variables under Environment Settings.
-
-🤝 Contributing
-
-Fork the Repository
-
-Create your Feature Branch (git checkout -b feature/AmazingFeature)
-
-Commit your Changes (git commit -m 'Add some AmazingFeature')
-
-Push to the Branch (git push origin feature/AmazingFeature)
-
-Open a Pull Request
-
-📄 License
+## 📝 License
 
 Distributed under the MIT License. See LICENSE for more information.
