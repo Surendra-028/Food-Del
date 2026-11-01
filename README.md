@@ -26,66 +26,90 @@ A comprehensive, full-stack online food ordering and delivery web application bu
 ## 🚀 Features
 
 ### Customer-Facing Web App
-* **User Authentication & Authorization**: Secure user registration and login using JWT (JSON Web Tokens) with hashed password storage using bcrypt.
-* **Interactive Restaurant & Menu Catalog**: Dynamic filtering by food categories, tags (vegetarian, non-vegetarian, chef specials), and price range.
-* **Shopping Cart & Checkout**: Real-time cart state management with quantity adjustments, item removal, price summary, and delivery fee calculation.
-* **Order History & Tracking**: View previous orders, check current order status (Pending, Out for Delivery, Delivered), and view receipt details.
-* **Responsive User Interface**: Fully optimized for mobile devices, tablets, and desktop displays.
+* User Authentication & Authorization: Secure user registration and login using JWT (JSON Web Tokens) with hashed password storage using bcrypt.
+* Interactive Restaurant & Menu Catalog: Dynamic filtering by food categories, tags (vegetarian, non-vegetarian, chef specials), and price range.
+* Shopping Cart & Checkout: Real-time cart state management with quantity adjustments, item removal, price summary, and delivery fee calculation.
+* Order History & Tracking: View previous orders, check current order status (Pending, Out for Delivery, Delivered), and view receipt details.
+* Responsive User Interface: Fully optimized for mobile devices, tablets, and desktop displays.
 
 ### Admin & Restaurant Portal
-* **Menu Management**: Full CRUD functionality to add, edit, toggle availability, or delete menu items and categories.
-* **Order Fulfillment Dashboard**: Live view of incoming customer orders to update fulfillment status.
-* **User & Inventory Management**: Overview of active registered users and stock status for menu items.
+* Menu Management: Full CRUD functionality to add, edit, toggle availability, or delete menu items and categories.
+* Order Fulfillment Dashboard: Live view of incoming customer orders to update fulfillment status.
+* User & Inventory Management: Overview of active registered users and stock status for menu items.
 
 ---
 
 ## 🛠️ Tech Stack & Architecture
 
 ### Frontend
-* **HTML5 / CSS3 / JavaScript (ES6+)**: Core markup, responsive layout styling, and client-side logic.
-* **React**: Component-based UI rendering and client-side state management.
+* HTML5 / CSS3 / JavaScript (ES6+): Core markup, responsive layout styling, and client-side logic.
+* React: Component-based UI rendering and client-side state management.
 
 ### Backend
-* **Node.js**: Server-side JavaScript runtime environment.
-* **Express.js**: Fast, unopinionated Web Framework for building RESTful APIs.
-* **JSON Web Token (JWT)**: Stateless user authentication.
-* **Bcrypt.js**: Secure password hashing algorithms.
+* Node.js: Server-side JavaScript runtime environment.
+* Express.js: Fast, unopinionated Web Framework for building RESTful APIs.
+* JSON Web Token (JWT): Stateless user authentication.
+* Bcrypt.js: Secure password hashing algorithms.
 
 ### Database & Cloud Storage
-* **MongoDB Atlas**: NoSQL database for document-based storage of users, products, and orders.
-* **Mongoose**: Object Data Modeling (ODM) library for MongoDB and Node.js.
+* MongoDB Atlas: NoSQL database for document-based storage of users, products, and orders.
+* Mongoose: Object Data Modeling (ODM) library for MongoDB and Node.js.
 
 ### Hosting & Deployment
-* **Backend**: Render / Vercel
-* **Frontend**: Vercel / Netlify
+* Backend: Render / Vercel
+* Frontend: Vercel / Netlify
 
 ---
 
 ## 📁 Project Structure
 
 Food-Del/
+│
 ├── backend/
-│   ├── config/          # Database connection setup
-│   ├── controllers/     # Route handlers for auth, food items, cart, orders
-│   ├── middleware/      # Authentication & file upload middleware
-│   ├── models/          # Mongoose schemas (User, Food, Order)
-│   ├── routes/          # Express route definitions
-│   ├── uploads/         # Uploaded product image files
-│   ├── server.js        # Server entry point
-│   └── package.json
+│   ├── config/
+│   │   └── db.js                # MongoDB connection setup
+│   ├── controllers/
+│   │   ├── userController.js    # Auth & registration handlers
+│   │   ├── foodController.js    # Food item CRUD handlers
+│   │   ├── cartController.js    # Cart management handlers
+│   │   └── orderController.js   # Order placement & status handlers
+│   ├── middleware/
+│   │   ├── auth.js              # JWT verification middleware
+│   │   └── multer.js            # Image upload handling
+│   ├── models/
+│   │   ├── userModel.js         # User Mongoose Schema
+│   │   ├── foodModel.js         # Food Mongoose Schema
+│   │   └── orderModel.js        # Order Mongoose Schema
+│   ├── routes/
+│   │   ├── userRoutes.js        # Express user routes
+│   │   ├── foodRoutes.js        # Express food routes
+│   │   ├── cartRoutes.js        # Express cart routes
+│   │   └── orderRoutes.js       # Express order routes
+│   ├── uploads/                 # Storage for uploaded food images
+│   ├── server.js                # Backend entry point
+│   └── package.json             # Backend dependencies
 │
 ├── frontend/
-│   ├── public/          # Static assets and index.html
+│   ├── public/                  # Static assets and index.html
 │   ├── src/
-│   │   ├── assets/      # Images, icons, and static data
-│   │   ├── components/  # Reusable UI components (Navbar, Footer, ItemCard)
-│   │   ├── context/     # Global state management (StoreContext)
-│   │   ├── pages/       # Page components (Home, Cart, PlaceOrder, MyOrders)
-│   │   ├── App.jsx      # Main application routing & setup
-│   │   └── main.jsx     # Application DOM mounting
-│   └── package.json
+│   │   ├── assets/              # Web application images and icons
+│   │   ├── components/
+│   │   │   ├── Navbar/          # Navigation bar component
+│   │   │   ├── Footer/          # Footer component
+│   │   │   ├── FoodItem/        # Individual food card component
+│   │   │   └── LoginPopup/      # User authentication modal
+│   │   ├── context/
+│   │   │   └── StoreContext.jsx # React context state management
+│   │   ├── pages/
+│   │   │   ├── Home/            # Landing page
+│   │   │   ├── Cart/            # Shopping cart overview page
+│   │   │   ├── PlaceOrder/      # Checkout & payment page
+│   │   │   └── MyOrders/        # Customer order tracking page
+│   │   ├── App.jsx              # Main routing configuration
+│   │   └── main.jsx             # React DOM root entry
+│   └── package.json             # Frontend dependencies
 │
-└── README.md
+└── README.md                    # Project documentation
 
 ---
 
@@ -96,10 +120,10 @@ Follow these instructions to set up a local copy of the application for developm
 ### Prerequisites
 
 Ensure you have the following installed on your development machine:
-* **Node.js** (v16.0.0 or higher)
-* **npm** or **yarn**
-* **Git**
-* **MongoDB Atlas Account** (or a local MongoDB instance running on port 27017)
+* Node.js (v16.0.0 or higher)
+* npm or yarn
+* Git
+* MongoDB Atlas Account (or a local MongoDB instance running on port 27017)
 
 ### Installation & Setup
 
@@ -187,10 +211,10 @@ JWT_SECRET=your_jwt_secret_key_here
 
 ## 🔮 Future Enhancements
 
-- **Payment Gateway Integration**: Add Stripe and Razorpay checkout support for instant digital payments.
-- **Real-Time Delivery Tracking**: Integrate Google Maps API to track live driver delivery routes.
-- **Search & Filter Extensions**: Advanced full-text search across items and restaurant locations.
-- **Rating & Review System**: Allow users to leave ratings and text feedback on ordered menu items.
+- Payment Gateway Integration: Add Stripe and Razorpay checkout support for instant digital payments.
+- Real-Time Delivery Tracking: Integrate Google Maps API to track live driver delivery routes.
+- Search & Filter Extensions: Advanced full-text search across items and restaurant locations.
+- Rating & Review System: Allow users to leave ratings and text feedback on ordered menu items.
 
 ---
 
@@ -199,9 +223,9 @@ JWT_SECRET=your_jwt_secret_key_here
 Contributions are always welcome!
 
 1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
+2. Create your Feature Branch (git checkout -b feature/AmazingFeature)
+3. Commit your Changes (git commit -m 'Add some AmazingFeature')
+4. Push to the Branch (git push origin feature/AmazingFeature)
 5. Open a Pull Request
 
 ---
