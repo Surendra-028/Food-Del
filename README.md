@@ -64,7 +64,6 @@ A comprehensive, full-stack online food ordering and delivery web application bu
 ## 📁 Project Structure
 
 Food-Del/
-│
 ├── backend/
 │   ├── config/
 │   │   └── db.js                # MongoDB connection setup
